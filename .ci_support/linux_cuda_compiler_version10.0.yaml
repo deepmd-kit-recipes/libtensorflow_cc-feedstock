@@ -19,7 +19,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '5.4'
 docker_image:
-- condaforge/linux-anvil-cuda:10.0
+- https://github.com/jjhelmus/docker-images.git#master:gpu/pkg_build_cos6_cuda100_cudnn7/
 pin_run_as_build:
   cudnn:
     min_pin: x.x
