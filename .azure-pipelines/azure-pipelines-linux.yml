@@ -13,7 +13,7 @@ jobs:
       linux_cuda_compiler_version10.0:
         CONFIG: linux_cuda_compiler_version10.0
         UPLOAD_PACKAGES: True
-        DOCKER_IMAGE: condaforge/linux-anvil-cuda:10.0
+        DOCKER_IMAGE: https://github.com/jjhelmus/docker-images.git#master:gpu/pkg_build_cos6_cuda100_cudnn7/
       linux_cuda_compiler_versionNone:
         CONFIG: linux_cuda_compiler_versionNone
         UPLOAD_PACKAGES: True
