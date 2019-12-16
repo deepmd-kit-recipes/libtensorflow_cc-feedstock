@@ -33,6 +33,7 @@ requirements:
     - bazel
     - rsync
   host:
+    - python  # [cuda_compiler_version != 'None']
     - cudatoolkit-dev {{ cudatoolkit }}*  # [cuda_compiler_version != 'None']
     - cudatoolkit {{ cudatoolkit }}*  # [cuda_compiler_version != 'None']
     - cudnn {{ cudnn }}*  # [cuda_compiler_version != 'None']
