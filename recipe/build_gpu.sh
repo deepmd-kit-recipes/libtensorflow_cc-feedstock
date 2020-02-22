@@ -41,9 +41,9 @@ export TF_NEED_TENSORRT=0
 # Additional compute capabilities can be added if desired but these increase
 # the build time and size of the package.
 if [ ${cuda_compiler_version} == "9.2" ]; then
-    export TF_CUDA_COMPUTE_CAPABILITIES="5.2,6.0,6.1,7.0"
+    export TF_CUDA_COMPUTE_CAPABILITIES="6.0,6.1,7.0"
 else
-    export TF_CUDA_COMPUTE_CAPABILITIES="5.2,6.0,6.1,7.0,7.5"
+    export TF_CUDA_COMPUTE_CAPABILITIES="6.0,6.1,7.0,7.5"
 fi
 export TF_NCCL_VERSION=""
 export GCC_HOST_COMPILER_PATH="${CC}"
