@@ -40,7 +40,7 @@ export TF_CUDA_CLANG=0
 export TF_NEED_TENSORRT=0
 # Additional compute capabilities can be added if desired but these increase
 # the build time and size of the package.
-export TF_CUDA_COMPUTE_CAPABILITIES="6.0,7.0"
+export TF_CUDA_COMPUTE_CAPABILITIES="6.0,6.1,7.0"
 export TF_NCCL_VERSION=""
 export GCC_HOST_COMPILER_PATH="${CC}"
 # Use system paths here rather than $PREFIX to allow Bazel to find the correct
