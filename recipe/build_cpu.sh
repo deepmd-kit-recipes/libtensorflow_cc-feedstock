@@ -10,21 +10,7 @@ sed -i -e "s:\${PREFIX}:${PREFIX}:" tensorflow/core/platform/default/build_confi
 
 mkdir -p ./bazel_output_base
 export BAZEL_OPTS=""
-export TF_NEED_MKL=0
-export BUILD_OPTS="
-    --copt=-march=nocona
-    --copt=-mtune=haswell
-    --copt=-ftree-vectorize
-    --copt=-fPIC
-    --copt=-fstack-protector-strong
-    --copt=-O2
-    --cxxopt=-fvisibility-inlines-hidden
-    --cxxopt=-fmessage-length=0
-    --linkopt=-zrelro
-    --linkopt=-znow
-    --verbose_failures
-    --config=opt"
-export TF_ENABLE_XLA=1
+export TF_ENABLE_XLA=0
 
 # Compile tensorflow from source
 export PYTHON_BIN_PATH=${PYTHON}
@@ -50,11 +36,34 @@ export TF_NEED_CUDA=0
 ./configure
 
 bazel ${BAZEL_OPTS} build  ${BUILD_OPTS}  \
-	//tensorflow:libtensorflow_cc.so
+    --copt=-march=nocona \
+    --copt=-mtune=haswell \
+    --copt=-ftree-vectorize \
+    --copt=-fPIC \
+    --copt=-fstack-protector-strong \
+    --copt=-O2 \
+    --cxxopt=-fvisibility-inlines-hidden \
+    --cxxopt=-fmessage-length=0 \
+    --linkopt=-zrelro \
+    --linkopt=-znow \
+    --linkopt="-L${PREFIX}/lib" \
+    --verbose_failures \
+    --config=opt \
+	--config=mkl \
+    --color=yes \
+    --curses=no \
+    --python_path="${PYTHON}" \
+    --define=PREFIX="$PREFIX" \
+    --copt=-DNO_CONSTEXPR_FOR_YOU=1 \
+    --host_copt=-DNO_CONSTEXPR_FOR_YOU=1 \
+    --define=LIBDIR="$PREFIX/lib" \
+    --define=INCLUDEDIR="$PREFIX/include" \
+	//tensorflow:libtensorflow_cc.so //tensorflow:install_headers
 mkdir -p $PREFIX/lib
 cp -d bazel-bin/tensorflow/libtensorflow_cc.so* $PREFIX/lib/
 cp -d bazel-bin/tensorflow/libtensorflow_framework.so* $PREFIX/lib/
 cp -d $PREFIX/lib/libtensorflow_framework.so.2 $PREFIX/lib/libtensorflow_framework.so
+
 mkdir -p $PREFIX/include
 mkdir -p $PREFIX/include/tensorflow
 # copy headers
