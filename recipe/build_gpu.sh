@@ -61,6 +61,9 @@ export GCC_HOST_COMPILER_PREFIX=$(dirname "${CC}")
 
 export TF_CUDA_PATHS="${PREFIX},/usr/local/cuda,/usr"
 
+bazel clean --expunge
+bazel shutdown
+
 ./configure
 
 # build using bazel
@@ -84,9 +87,16 @@ bazel ${BAZEL_OPTS} build \
     --verbose_failures \
     --config=opt \
     --config=cuda \
+	--config=mkl \
     --color=yes \
     --curses=no \
-	//tensorflow:libtensorflow_cc.so
+    --python_path="${PYTHON}" \
+    --define=PREFIX="$PREFIX" \
+    --copt=-DNO_CONSTEXPR_FOR_YOU=1 \
+    --host_copt=-DNO_CONSTEXPR_FOR_YOU=1 \
+    --define=LIBDIR="$PREFIX/lib" \
+    --define=INCLUDEDIR="$PREFIX/include" \
+	//tensorflow:libtensorflow_cc.so //tensorflow:install_headers
 mkdir -p $PREFIX/lib
 cp -d bazel-bin/tensorflow/libtensorflow_cc.so* $PREFIX/lib/
 cp -d bazel-bin/tensorflow/libtensorflow_framework.so* $PREFIX/lib/

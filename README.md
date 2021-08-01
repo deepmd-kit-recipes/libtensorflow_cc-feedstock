@@ -36,52 +36,24 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_cuda_compiler_version10.0cudnn7python3.7.</td>
+              <td>linux_64_cuda_compiler_version10.1cudnn7python3.9.</td>
               <td>
                 <a href="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_build/latest?definitionId=4&branchName=master">
-                  <img src="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_apis/build/status/libtensorflow_cc-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.0cudnn7python3.7._" alt="variant">
+                  <img src="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_apis/build/status/libtensorflow_cc-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.1cudnn7python3.9._" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version10.1cudnn7python3.7.</td>
+              <td>linux_64_cuda_compiler_version11.3cudnn8python3.9.</td>
               <td>
                 <a href="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_build/latest?definitionId=4&branchName=master">
-                  <img src="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_apis/build/status/libtensorflow_cc-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.1cudnn7python3.7._" alt="variant">
+                  <img src="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_apis/build/status/libtensorflow_cc-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.3cudnn8python3.9._" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version10.2cudnn8python3.7.</td>
+              <td>linux_64_cuda_compiler_versionNonecudnnundefinedpython3.9.</td>
               <td>
                 <a href="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_build/latest?definitionId=4&branchName=master">
-                  <img src="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_apis/build/status/libtensorflow_cc-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.2cudnn8python3.7._" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.0cudnn8python3.7.</td>
-              <td>
-                <a href="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_build/latest?definitionId=4&branchName=master">
-                  <img src="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_apis/build/status/libtensorflow_cc-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.0cudnn8python3.7._" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.1cudnn8python3.7.</td>
-              <td>
-                <a href="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_build/latest?definitionId=4&branchName=master">
-                  <img src="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_apis/build/status/libtensorflow_cc-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.1cudnn8python3.7._" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version9.2cudnn7python3.7.</td>
-              <td>
-                <a href="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_build/latest?definitionId=4&branchName=master">
-                  <img src="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_apis/build/status/libtensorflow_cc-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version9.2cudnn7python3.7._" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonecudnnNonepython3.7.</td>
-              <td>
-                <a href="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_build/latest?definitionId=4&branchName=master">
-                  <img src="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_apis/build/status/libtensorflow_cc-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonecudnnNonepython3.7._" alt="variant">
+                  <img src="https://dev.azure.com/deepmd-kit-recipes/feedstock-builds/_apis/build/status/libtensorflow_cc-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonecudnnundefinedpython3.9._" alt="variant">
                 </a>
               </td>
             </tr>
@@ -106,6 +78,7 @@ Installing `libtensorflow_cc` from the `deepmodeling` channel can be achieved by
 
 ```
 conda config --add channels deepmodeling
+conda config --set channel_priority strict
 ```
 
 Once the `deepmodeling` channel has been enabled, `libtensorflow_cc` can be installed with:
